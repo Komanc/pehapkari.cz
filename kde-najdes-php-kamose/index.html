@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="description" content="Oficiální stránky PHP komunity">
+        <meta name="keywords" content="PHP, komunita, programování">
+        <meta name="author" content="http://pehapkari.cz">
+        <meta name="robots" content="index, follow">
+
+        <meta property="og:image" content="/images/php-square.png">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="alternate" type="application/rss+xml" title="Péhápkaři.cz Blog RSS" href="/rss.xml">
+
+        <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+
+        <link href="/favicon.ico" rel="shortcut icon">
+
+        <title>Kde najdeš PHP kámoše</title>
+    </head>
+
+    <body>
+<header>
+    <div class="container">
+        <div class="hidden-xs">
+            <a href="/"><img src="/assets/images/logo-header.svg?ver" alt="" height="50"></a>
+
+            <nav class="top-navigation">
+                <a href="/blog">
+                    <em class="fa fa-newspaper-o fa-fw"></em>
+                    Blog
+                </a>
+                <a href="/mentori">
+                    <em class="fa fa-handshake-o fa-fw"></em>
+                    Mentoři
+                </a>
+                <a href="/slovnicek">
+                    <em class="fa fa-language fa-fw"></em>
+                    Slovníček
+                </a>
+                <a href="/knihovnicka">
+                    <em class="fa fa-book fa-fw"></em>
+                    Knížky
+                </a>
+
+
+            </nav>
+        </div>
+
+        <div id="mobile-menu" class="row text-center hidden-md hidden-sm hidden-lg">
+            <a href="/" class="col-xs-3">
+                <em class="fa fa-home"></em>
+                <br>
+                Home
+            </a>
+            <a href="/blog" class="col-xs-3">
+                <em class="fa fa-book fa-fw"></em>
+                <br>
+                Blog
+            </a>
+            <a href="/mentori" class="col-xs-3">
+                <em class="fa fa-handshake-o fa-fw"></em>
+                <br>
+                Mentoři
+            </a>
+            <a href="/knihovnicka" class="col-xs-3">
+                <em class="fa fa-language fa-fw"></em>
+                <br>
+                Knížky
+            </a>
+        </div>
+    </div>
+</header>
+
+            <div class="section">
+    <div class="container">
+        <div class="row text-center">
+            <h2>
+                <em class="fa fa-map-o fa-fw"></em>
+                Mapka PHP programátorů
+            </h2>
+            <a href="#form" title="Přidej se" class="btn btn-lg btn-info" role="button">
+                <em class="fa fa-user-plus fa-fw"></em>
+                Přidej se
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="section grey-bg">
+    <div class="container">
+        <div class="row">
+            <div id="map" class="col-xs-12"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container" id="form">
+        <div class="row">
+            <h2 class="text-center">
+                <em class="fa fa-user-plus fa-fw"></em>
+                Přidej se
+            </h2>
+        </div>
+        <div class="row" id="formRem">
+            <div class="col-sm-5 col-sm-offset-1">
+                <div id="formMap" class="col-xs-12"></div>
+            </div>
+            <div class="col-sm-5">
+                <form id="pushToFire">
+                    <div class="form-group">
+                        <label for="city">Ulice, Město <sup class="text-danger">*</sup></label>
+                        <div class="input-group">
+                            <input type="text" name="city" placeholder="Ulice, Město" id="city" class="form-control" required>
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button" id="search">Najdi!</button>
+                            </span>
+                        </div>
+                        <span class="help-block">Uložím si jen souřadnice, vážně <em class="fa fa-smile-o"></em></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Jméno <sup class="text-danger">*</sup></label>
+                        <input type="text" name="name" placeholder="Evelín" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Příjmení <sup class="text-danger">*</sup></label>
+                        <input type="text" name="surname" placeholder="Pehapkář" id="surname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <sup class="text-danger">*</sup></label>
+                        <input type="email" name="email" placeholder="evelin@pehapkar.cz" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Telefon</label>
+                        <input type="tel" name="tel" placeholder="123456789" id="tel" class="form-control">
+                    </div>
+                    <button type="button" id="fire" class="btn btn-lg btn-warning">Pushni mě tam</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script async defer src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script src="/assets/js/fireMap.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZnH6oy2-TO9VhtzUvZirtIlAwuOVGXP4&callback=initMaps"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', "UA-89860072-1", 'auto');
+    ga('send','pageview');
+</script>
+<script async defer src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    !function(f,b,e,v,n,t,s){ if(f.fbq)return;n=f.fbq=function(){ n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', "201338863559186");
+    fbq('track', 'PageView');
+</script>
+    </body>
+</html>
